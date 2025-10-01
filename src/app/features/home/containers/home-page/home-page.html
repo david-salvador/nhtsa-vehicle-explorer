@@ -1,0 +1,71 @@
+<div class="home-container">
+  <!-- Search and filters section -->
+  <div class="search-section">
+    <mat-toolbar color="primary">
+      <span>Vehicle Brand Explorer</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="onRefresh()" aria-label="Refresh data">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="search-container">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search vehicle brands</mat-label>
+        <input matInput 
+               [formControl]="searchControl" 
+               placeholder="Type to filter brands..."
+               aria-label="Search input">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button 
+                matSuffix 
+                *ngIf="searchControl.value"
+                (click)="searchControl.setValue('')"
+                aria-label="Clear search">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="loading$ | async" class="loading-container">
+    <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+    <p>Loading vehicle brands...</p>
+  </div>
+
+  <!-- Error state -->
+  <div *ngIf="error$ | async as error" class="error-container">
+    <mat-icon color="warn">error</mat-icon>
+    <p>{{ error }}</p>
+    <button mat-raised-button color="primary" (click)="onRefresh()">
+      Retry
+    </button>
+  </div>
+
+  <!-- Virtual scroll list -->
+  <!-- minBufferPx and maxBufferPx parameters control rendered items beyond viewport—minBufferPx="900" ensures at least 900px of items are rendered above/below the visible area, preventing blank spaces during fast scrolling. The maxBufferPx="1350" caps memory usage by limiting maximum buffer size. These values balance smooth scrolling with memory efficiency for 10,000+ items. -->
+  <cdk-virtual-scroll-viewport 
+    *ngIf="!(loading$ | async) && !(error$ | async)"
+    itemSize="72" 
+    class="vehicle-viewport"
+    minBufferPx="900"
+    maxBufferPx="1350">
+    
+    <mat-list>
+      <mat-list-item 
+        *cdkVirtualFor="let vehicle of vehicles$; trackBy: trackByMakeId"
+        class="vehicle-item"
+        [routerLink]="['/vehicles', vehicle.Make_ID]">
+        
+        <mat-icon matListItemIcon>directions_car</mat-icon>
+        <div matListItemTitle class="vehicle-name">{{ vehicle.Make_Name }}</div>
+        <div matListItemLine class="vehicle-id">ID: {{ vehicle.Make_ID }}</div>
+        <button mat-icon-button matListItemMeta aria-label="View details">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </cdk-virtual-scroll-viewport>
+</div>

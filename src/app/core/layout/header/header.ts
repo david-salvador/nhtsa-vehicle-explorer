@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.scss'
 })
 export class Header {
-
+  navLinks = [
+    { path: '/home', label: 'Home', icon: 'home' },
+    { path: '/vehicles', label: 'Vehicles', icon: 'directions_car' },
+    { path: '/brands', label: 'Brands', icon: 'business' }
+  ];
 }

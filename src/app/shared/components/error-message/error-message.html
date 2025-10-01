@@ -1,1 +1,13 @@
-<p>error-message works!</p>
+<div class="error-container">
+  <mat-icon color="warn" class="error-icon">error</mat-icon>
+  <h3 class="error-title">Oops! Something went wrong</h3>
+  <p class="error-message">{{ message }}</p>
+  <button 
+    mat-raised-button 
+    color="primary" 
+    *ngIf="showRetry"
+    (click)="onRetry()">
+    <mat-icon>refresh</mat-icon>
+    Try Again
+  </button>
+</div>

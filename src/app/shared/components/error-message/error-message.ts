@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-error-message',
@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ErrorMessage {
 
+  @Input() message = 'An error occurred';
+  @Input() showRetry = true;
+  @Output() retry = new EventEmitter<void>();
+
+  onRetry(): void {
+    this.retry.emit();
+  }
 }

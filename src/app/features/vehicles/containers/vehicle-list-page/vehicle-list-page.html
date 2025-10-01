@@ -1,0 +1,15 @@
+<p>vehicle-list-page works!</p>
+<div class="page-container">
+  <h1>Vehicle Brands</h1>
+  
+  <app-search-input 
+    [value]="searchTerm$ | async"
+    (valueChange)="onSearchChange($event)">
+  </app-search-input>
+  
+  <app-vehicle-list
+    [vehicles]="vehicles$ | async"
+    [loading]="loading$ | async"
+    (vehicleSelect)="onVehicleSelect($event)">
+  </app-vehicle-list>
+</div>

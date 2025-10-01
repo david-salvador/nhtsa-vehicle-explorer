@@ -39,10 +39,12 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.3",
     "@angular/build": "^20.3.3",
     "@angular/cli": "^20.3.3",
     "@angular/compiler-cli": "^20.3.0",
     "@cypress/angular": "^4.0.0",
+    "@cypress/webpack-preprocessor": "^7.0.1",
     "@types/jasmine": "~5.1.0",
     "cypress": "^15.3.0",
     "jasmine-core": "~5.9.0",
