@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { VehiclesRoutingModule } from './vehicles-routing-module';
 import { SharedModule } from '../../shared/shared-module';
-import { VehicleListPage } from './containers/vehicle-list-page/vehicle-list-page';
 import { VehicleDetailPage } from './containers/vehicle-detail-page/vehicle-detail-page';
 import { VehicleCard } from './components/vehicle-card/vehicle-card';
 import { VehicleFilter } from './components/vehicle-filter/vehicle-filter';
@@ -14,7 +13,6 @@ import { VehicleModelList } from './components/vehicle-model-list/vehicle-model-
 
 @NgModule({
   declarations: [
-    VehicleListPage,
     VehicleDetailPage,
     VehicleCard,
     VehicleFilter,
