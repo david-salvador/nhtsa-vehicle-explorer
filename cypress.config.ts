@@ -1,4 +1,3 @@
-// cypress.config.ts
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
@@ -11,6 +10,7 @@ export default defineConfig({
     
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      return config;
     },
     
     specPattern: 'cypress/e2e/**/*.cy.ts',
@@ -21,12 +21,21 @@ export default defineConfig({
     devServer: {
       framework: 'angular',
       bundler: 'webpack',
+      options: {
+        projectConfig: {
+          root: '',
+          sourceRoot: 'src',
+          buildOptions: {
+            tsConfig: 'tsconfig.cy.json',
+          },
+        },
+      },
     },
     specPattern: '**/*.cy.ts',
+    // specPattern: 'cypress/component/**/*.cy.ts',
     supportFile: 'cypress/support/component.ts',
   },
   
-  // Global configuration
   defaultCommandTimeout: 10000,
   retries: {
     runMode: 2,

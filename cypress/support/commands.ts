@@ -35,29 +35,13 @@
 //     }
 //   }
 // }
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      waitForStoreLoad(): Chainable<void>;
-      dispatchAction(action: any): Chainable<void>;
-      selectFromStore(selector: string): Chainable<any>;
-    }
-  }
-}
 
-Cypress.Commands.add('waitForStoreLoad', () => {
-  cy.window().its('__ngxStore__').should('exist');
-  cy.window().then((win: any) => {
-    return new Cypress.Promise((resolve) => {
-      const checkStore = () => {
-        const state = win.__ngxStore__.getState();
-        if (state.vehicles?.loadStatus === 'LOADED') {
-          resolve();
-        } else {
-          setTimeout(checkStore, 100);
-        }
-      };
-      checkStore();
-    });
-  });
+Cypress.Commands.add('waitForAngular', () => {
+  cy.window().should('have.property', 'ng');
+});
+
+Cypress.Commands.add('interceptVehiclesApi', (fixture = 'vehicles.json') => {
+  cy.intercept('GET', '**/GetAllMakes*', {
+    fixture: fixture
+  }).as('getVehicles');
 });

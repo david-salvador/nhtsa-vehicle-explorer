@@ -1,1 +1,61 @@
-<p>brand-detail-page works!</p>
+<div class="brand-detail-page">
+  <div class="page-header">
+    <button mat-icon-button (click)="onBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="header-content" *ngIf="brand$ | async as brand">
+      <h1>{{ brand.Make_Name }}</h1>
+      <p class="subtitle">Complete brand information and vehicle lineup</p>
+    </div>
+  </div>
+
+  <div class="detail-content" *ngIf="brand$ | async as brand">
+    <app-brand-info [brand]="brand"></app-brand-info>
+
+    <div class="info-grid">
+      <mat-card class="types-section">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>category</mat-icon>
+          <mat-card-title>Vehicle Types</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-loading-spinner
+            *ngIf="loadingTypes$ | async"
+            [diameter]="40"
+            message="Loading types...">
+          </app-loading-spinner>
+
+          <app-vehicle-type-list
+            *ngIf="!(loadingTypes$ | async)"
+            [types]="types$ | async">
+          </app-vehicle-type-list>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="models-section">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>directions_car</mat-icon>
+          <mat-card-title>Available Models</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-loading-spinner
+            *ngIf="loadingModels$ | async"
+            [diameter]="40"
+            message="Loading models...">
+          </app-loading-spinner>
+
+          <app-vehicle-model-list
+            *ngIf="!(loadingModels$ | async)"
+            [models]="models$ | async">
+          </app-vehicle-model-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <app-brand-statistics 
+      [brand]="brand"
+      [types]="types$ | async"
+      [models]="models$ | async">
+    </app-brand-statistics>
+  </div>
+</div>

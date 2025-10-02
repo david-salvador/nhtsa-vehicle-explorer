@@ -15,3 +15,19 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+// Prevent TypeScript errors
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to wait for Angular to be ready
+       */
+      waitForAngular(): Chainable<void>;
+      
+      /**
+       * Custom command to intercept vehicle API calls
+       */
+      interceptVehiclesApi(fixture?: string): Chainable<void>;
+    }
+  }
+}

@@ -1,1 +1,17 @@
-<p>vehicle-filter works!</p>
+<div class="filter-container">
+  <mat-chip-grid #chipGrid aria-label="filter chip grid">
+    @for (filter of filters; track $index) {
+      <mat-chip-row
+        (click)="onFilterChange(filter)"
+      >
+      <!-- <mat-chip-row (removed)="remove(filter)"> -->
+        {{filter}}
+        <!-- <button matChipRemove [attr.aria-label]="'remove ' + filter">
+          <mat-icon>cancel</mat-icon>
+        </button> -->
+      </mat-chip-row>
+    }
+  </mat-chip-grid>
+</div>
+
+

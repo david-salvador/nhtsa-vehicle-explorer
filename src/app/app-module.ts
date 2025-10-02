@@ -4,16 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 import { CoreModule } from './core/core-module';
-import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor';
+import { HttpErrorInterceptor } from './core/interceptors/http-error-interceptor';
 import { environment } from '../environments/environment';
+import { VehicleEffects } from './features/vehicles/store/effects/vehicle.effects';
+import { vehicleReducers } from './features/vehicles/store/reducers';
 
 
 @NgModule({
@@ -22,7 +23,6 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
-    // HttpClientModule,
     AppRoutingModule,
     CoreModule,
     
@@ -35,11 +35,12 @@ import { environment } from '../environments/environment';
         strictActionImmutability: true,
         strictStateSerializability: true,
         strictActionSerializability: true,
-        strictActionWithinNgZone: true,
+        strictActionWithinNgZone: false,
         strictActionTypeUniqueness: true
       }
     }),
-    
+    StoreModule.forFeature('vehicleModule', vehicleReducers),
+    EffectsModule.forFeature([VehicleEffects]),
     EffectsModule.forRoot([]),
     
     StoreRouterConnectingModule.forRoot(),

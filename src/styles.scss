@@ -24,7 +24,8 @@ body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
   // user's system settings.
-  color-scheme: light dark;
+  // color-scheme: light dark;
+  color-scheme: light;
 
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
@@ -38,7 +39,7 @@ body {
 }
 /* You can add global styles to this file, and also import other style files */
 
-@include mat.all-component-themes($theme);
+// @include mat.all-component-themes($theme);
 
 // Global styles
 * {
@@ -49,13 +50,11 @@ body {
 
 html, body {
   height: 100%;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
-  background-color: orange;
 }
 
 // Utility classes
@@ -96,4 +95,21 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.debug {
+  border: 1px solid gray;
+  background-color: #dadada;
+  color: darkmagenta;
+}
+
+.mdc-evolution-chip__text-label {
+
+  
+  display: grid;
+  grid-template-columns: min-content max-content;
+  gap: 0.4rem;
+  align-items: anchor-center;
+  
+  
 }

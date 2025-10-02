@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es2018", "dom"],
+    "types": ["cypress", "node"],
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    // "noImplicitAny": false,  // ← Add this if you want to be less strict in tests
+    "strict": false           // ← Or this
+  },
+  "include": [
+    "cypress/**/*.ts",
+    "cypress.config.ts",
+    "**/*.cy.ts"
+  ]
+}

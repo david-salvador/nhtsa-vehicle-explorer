@@ -1,1 +1,22 @@
-<p>brand-info works!</p>
+<mat-card class="brand-info-card" *ngIf="brand">
+  <mat-card-header>
+    <mat-icon mat-card-avatar class="info-icon">business</mat-icon>
+    <mat-card-title>Brand Information</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="label">Brand Name</span>
+        <span class="value">{{ brand.Make_Name }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Manufacturer ID</span>
+        <span class="value">{{ brand.Make_ID }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Data Source</span>
+        <span class="value">NHTSA vPIC API</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,15 +1,43 @@
-<p>vehicle-list-page works!</p>
-<div class="page-container">
-  <h1>Vehicle Brands</h1>
-  
-  <app-search-input 
-    [value]="searchTerm$ | async"
+
+aaaaaaaaa
+<div class="page-header">
+  <h1>All Vehicle Brands</h1>
+  <p class="subtitle">Browse through all available vehicle manufacturers</p>
+</div>
+
+<div class="search-section">
+  <app-search-input
+    [value]="(searchTerm$ | async) ?? ''"
+    placeholder="Search vehicle brands..."
     (valueChange)="onSearchChange($event)">
   </app-search-input>
   
-  <app-vehicle-list
-    [vehicles]="vehicles$ | async"
-    [loading]="loading$ | async"
-    (vehicleSelect)="onVehicleSelect($event)">
-  </app-vehicle-list>
+  <button 
+    mat-raised-button 
+    color="primary" 
+    (click)="onRefresh()"
+    class="refresh-button">
+    <mat-icon>refresh</mat-icon>
+    Refresh
+  </button>
 </div>
+
+@if (loading$ | async) {
+  <app-loading-spinner
+    message="Loading vehicle brands...">
+  </app-loading-spinner>
+}
+
+<app-error-message
+  *ngIf="error$ | async as error"
+  [message]="error"
+  (retry)="onRefresh()">
+</app-error-message>
+
+@if (!(loading$ | async) && !(error$ | async)) {
+  <app-vehicle-card
+    *ngFor="let vehicle of vehicles$ | async; trackBy: trackByMakeId"
+    [vehicle]="vehicle"
+    (select)="onVehicleSelect($event)">
+  </app-vehicle-card>
+}

@@ -1,0 +1,73 @@
+:host{
+  position: relative;
+  display: grid;
+  height: calc(100vh - 300px);
+  border: 1px dashed green;
+
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  max-height: 100%;
+}
+
+.page-header {
+  margin-bottom: 1rem;
+  
+  h1 {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  .subtitle {
+    margin: 0;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.search-section {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  
+  app-search-input {
+    flex: 1;
+  }
+  
+  .refresh-button {
+    mat-icon {
+      margin-right: .5rem;
+    }
+  }
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .vehicle-list-page {
+    padding: 16px;
+  }
+  
+  .page-header h1 {
+    font-size: 24px;
+  }
+  
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-section {
+    flex-direction: column;
+    
+    .refresh-button {
+      width: 100%;
+    }
+  }
+}

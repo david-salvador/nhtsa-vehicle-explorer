@@ -10,5 +10,5 @@
   },
   "include": [
     "src/**/*.ts"
-  ]
+, "cypress/component/search-input.cy.ts", "cypress/component/vehicle-card.cy.ts"  ]
 }

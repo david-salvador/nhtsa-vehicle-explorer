@@ -1,0 +1,13 @@
+.filter-container {
+  padding: 16px 0;
+}
+
+mat-chip-set {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+mat-chip {
+  cursor: pointer;
+}

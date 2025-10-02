@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Brands } from './brands';
+import { BrandDetailPage } from './containers/brand-detail-page/brand-detail-page';
 
-const routes: Routes = [{ path: '', component: Brands }];
+const routes: Routes = [
+  {
+    path: ':id',
+    component: BrandDetailPage
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

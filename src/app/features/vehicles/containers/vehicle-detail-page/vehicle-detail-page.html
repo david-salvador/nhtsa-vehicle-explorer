@@ -1,1 +1,94 @@
-<p>vehicle-detail-page works!</p>
+<div class="vehicle-detail-page">
+  <div class="page-header">
+    <button mat-icon-button (click)="onBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="header-content">
+      <h1 *ngIf="vehicle$ | async as vehicle">{{ vehicle.Make_Name }}</h1>
+      <p class="subtitle">Vehicle brand details and information</p>
+    </div>
+  </div>
+
+  <div class="detail-content" *ngIf="vehicle$ | async as vehicle">
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>info</mat-icon>
+        <mat-card-title>Brand Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="info-row">
+          <span class="label">Brand Name:</span>
+          <span class="value">{{ vehicle.Make_Name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Manufacturer ID:</span>
+          <span class="value">{{ vehicle.Make_ID }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="details-grid">
+      <mat-card class="types-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>category</mat-icon>
+          <mat-card-title>Vehicle Types</mat-card-title>
+          <button 
+            mat-icon-button 
+            (click)="onRefreshTypes()"
+            matTooltip="Refresh types">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-content>
+          <app-loading-spinner
+            *ngIf="loadingTypes$ | async"
+            [diameter]="40"
+            message="Loading types...">
+          </app-loading-spinner>
+
+          <app-error-message
+            *ngIf="errorTypes$ | async as error"
+            [message]="error"
+            (retry)="onRefreshTypes()">
+          </app-error-message>
+
+          <app-vehicle-type-list
+            *ngIf="!(loadingTypes$ | async) && !(errorTypes$ | async)"
+            [types]="types$ | async">
+          </app-vehicle-type-list>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="models-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>directions_car</mat-icon>
+          <mat-card-title>Available Models</mat-card-title>
+          <button 
+            mat-icon-button 
+            (click)="onRefreshModels()"
+            matTooltip="Refresh models">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-content>
+          <app-loading-spinner
+            *ngIf="loadingModels$ | async"
+            [diameter]="40"
+            message="Loading models...">
+          </app-loading-spinner>
+
+          <app-error-message
+            *ngIf="errorModels$ | async as error"
+            [message]="error"
+            (retry)="onRefreshModels()">
+          </app-error-message>
+
+          <app-vehicle-model-list
+            *ngIf="!(loadingModels$ | async) && !(errorModels$ | async)"
+            [models]="models$ | async">
+          </app-vehicle-model-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -20,6 +20,11 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
+# IDE
+.vscode/
+*.swp
+*.swo
+
 # Visual Studio Code
 .vscode/*
 !.vscode/settings.json
@@ -38,6 +43,18 @@ testem.log
 /typings
 __screenshots__/
 
-# System files
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+
+
+# OS
 .DS_Store
 Thumbs.db

@@ -1,1 +1,15 @@
-<p>vehicle-type-list works!</p>
+<div class="type-list">
+  <div *ngIf="!types || types.length === 0" class="empty-state">
+    <mat-icon>info</mat-icon>
+    <p>No vehicle types available</p>
+  </div>
+  
+  <mat-chip-set *ngIf="types && types.length > 0">
+    <mat-chip 
+      *ngFor="let type of types; trackBy: trackByTypeId"
+      class="type-chip">
+      <mat-icon matChipAvatar>category</mat-icon>
+      {{ type.VehicleTypeName }}
+    </mat-chip>
+  </mat-chip-set>
+</div>

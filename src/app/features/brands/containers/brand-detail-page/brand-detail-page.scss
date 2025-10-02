@@ -1,0 +1,59 @@
+.brand-detail-page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  
+  .back-button {
+    flex-shrink: 0;
+  }
+  
+  .header-content {
+    flex: 1;
+    
+    h1 {
+      margin: 0 0 4px 0;
+      font-size: 32px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.87);
+    }
+    
+    .subtitle {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .brand-detail-page {
+    padding: 16px;
+  }
+  
+  .page-header .header-content h1 {
+    font-size: 24px;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

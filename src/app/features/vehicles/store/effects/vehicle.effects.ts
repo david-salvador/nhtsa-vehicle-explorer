@@ -1,5 +1,5 @@
 // features/vehicles/store/effects/vehicle.effects.ts
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of, timer } from 'rxjs';
@@ -28,6 +28,10 @@ import { Vehicle, VehicleModel, VehicleType } from '../models/vehicle-state.mode
 export class VehicleEffects {
   private readonly CACHE_TTL = environment.cacheTTL; // 5 * 60 * 1000; 5 minutes
   private readonly MAX_RETRIES = 3;
+
+  private actions$: Actions = inject(Actions);
+  private store: Store = inject(Store);
+  private vehicleApi: VehicleApi = inject(VehicleApi);
 
   // smart caching effect - only loads if cache invalid
   getVehicles$ = createEffect(() =>
@@ -150,9 +154,9 @@ export class VehicleEffects {
     )
   );
 
-  constructor(
-    private actions$: Actions,
-    private store: Store,
-    private vehicleApi: VehicleApi
-  ) {}
+  // constructor(
+  //   private actions$: Actions,
+  //   private store: Store,
+  //   private vehicleApi: VehicleApi
+  // ) {}
 }

@@ -1,1 +1,49 @@
-<p>brand-list works!</p>
+<div *ngIf="!brands || brands.length === 0" class="empty-state">
+  <mat-icon>search_off</mat-icon>
+  <h3>No brands found</h3>
+  <p>Try adjusting your search criteria</p>
+</div>
+
+@if(brands && brands.length > 0) {
+  <cdk-virtual-scroll-viewport 
+    itemSize="100" 
+    class="brand-viewport"
+    minBufferPx="2000"
+    maxBufferPx="4000">
+    
+    <mat-list class="brand-list">
+      <mat-list-item
+        *cdkVirtualFor="let brand of brands;
+          trackBy: trackByMakeId;
+          templateCacheSize: 100;
+          let index = index;
+          let count = count;
+          let first = first;
+          let last = last;
+          let even = even;
+          let odd = odd;" 
+        [class.example-alternate]="odd"
+        class="brand-item"
+        (click)="onBrandSelect(brand)"
+      >
+        <mat-icon matListItemIcon class="brand-icon">directions_car</mat-icon>
+        
+        <div matListItemTitle class="brand-name">
+          {{ brand.Make_Name }}
+        </div>
+        <div matListItemLine class="brand-id">
+          Manufacturer ID: {{ brand.Make_ID }}.  ({{index}}/{{count}})
+        </div>
+        
+        <button 
+          mat-icon-button 
+          matListItemMeta 
+          aria-label="View details"
+          (click)="onBrandSelect(brand); $event.stopPropagation()">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+    
+  </cdk-virtual-scroll-viewport>
+}

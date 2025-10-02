@@ -1,1 +1,16 @@
-<p>vehicle-model-list works!</p>
+<div class="model-list">
+  <div *ngIf="!models || models.length === 0" class="empty-state">
+    <mat-icon>info</mat-icon>
+    <p>No models available</p>
+  </div>
+  
+  <mat-list *ngIf="models && models.length > 0" class="models-list">
+    <mat-list-item 
+      *ngFor="let model of models; trackBy: trackByModelId"
+      class="model-item">
+      <mat-icon matListItemIcon>directions_car</mat-icon>
+      <div matListItemTitle>{{ model.Model_Name }}</div>
+      <div matListItemLine class="model-id">Model ID: {{ model.Model_ID }}</div>
+    </mat-list-item>
+  </mat-list>
+</div>

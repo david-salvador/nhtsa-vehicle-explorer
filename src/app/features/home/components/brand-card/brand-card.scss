@@ -1,0 +1,26 @@
+.brand-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-icon {
+    background-color: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  mat-card-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  mat-card-actions button mat-icon {
+    margin-left: 4px;
+  }
+}

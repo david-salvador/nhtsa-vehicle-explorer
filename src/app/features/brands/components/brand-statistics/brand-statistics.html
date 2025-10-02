@@ -1,1 +1,22 @@
-<p>brand-statistics works!</p>
+<mat-card class="statistics-card">
+  <mat-card-header>
+    <mat-icon mat-card-avatar>analytics</mat-icon>
+    <mat-card-title>Statistics</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value">{{ statistics.totalTypes }}</div>
+        <div class="stat-label">Vehicle Types</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ statistics.totalModels }}</div>
+        <div class="stat-label">Total Models</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ statistics.uniqueModelNames }}</div>
+        <div class="stat-label">Unique Models</div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

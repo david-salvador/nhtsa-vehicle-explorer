@@ -20,7 +20,7 @@ export class VehicleFacade {
   error$ = this.store.select(VehicleSelectors.selectVehiclesError);
   cacheStatus$ = this.store.select(VehicleSelectors.selectCacheStatus);
   searchTerm$ = this.store.select(VehicleSelectors.selectSearchTerm);
-  selectedVehicle$ = this.store.select(VehicleSelectors.selectSelectedVehicle);
+  selectedVehicle$:Observable<Vehicle | null | undefined> = this.store.select(VehicleSelectors.selectSelectedVehicle);
 
   // Vehicle details observables
   vehicleTypes$ = this.store.select(VehicleSelectors.selectVehicleTypes);

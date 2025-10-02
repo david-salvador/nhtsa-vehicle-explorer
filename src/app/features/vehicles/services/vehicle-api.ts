@@ -25,7 +25,6 @@ export interface VehicleMake {
 export class VehicleApi {
   private readonly baseUrl = 'https://vpic.nhtsa.dot.gov/api/vehicles';
 
-  // constructor(private http: HttpClient) {}
   constructor(private apiClient: ApiClient) { }
 
   getAllMakes(): Observable<Vehicle[]> {
@@ -58,37 +57,4 @@ export class VehicleApi {
       map(response => response.Results)
     );
   }
-
-  // getAllMakes(): Observable<VehicleMake[]> {
-  //   return this.http.get<NHTSAResponse<VehicleMake>>(
-  //     `${this.baseUrl}/GetAllMakes?format=json`
-  //   ).pipe(
-  //     map(response => response.Results),
-  //     shareReplay(1)  // Cache the response
-  //   );
-  // }
-
-  // getModelsForMake(makeId: number): Observable<VehicleModel[]> {
-  //   return this.http.get<NHTSAResponse<VehicleModel>>(
-  //     `${this.baseUrl}/GetModelsForMakeId/${makeId}?format=json`
-  //   ).pipe(
-  //     map(response => response.Results)
-  //   );
-  // }
-
-  // getVehicleTypesForMake(makeName: string): Observable<VehicleType[]> {
-  //   return this.http.get<NHTSAResponse<VehicleType>>(
-  //     `${this.baseUrl}/GetVehicleTypesForMake/${makeName}?format=json`
-  //   ).pipe(
-  //     map(response => response.Results)
-  //   );
-  // }
-
-  // getModelsForMakeYear(make: string, year: number): Observable<VehicleModel[]> {
-  //   return this.http.get<NHTSAResponse<VehicleModel>>(
-  //     `${this.baseUrl}/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
-  //   ).pipe(
-  //     map(response => response.Results)
-  //   );
-  // }
 }

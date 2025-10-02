@@ -1,0 +1,83 @@
+// .brand-list-container {
+:host {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  color: rgba(0, 0, 0, 0.4);
+  
+  mat-icon {
+    font-size: 96px;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 24px;
+  }
+  
+  h3 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 16px;
+  }
+}
+
+.brand-viewport {
+  height: 500px;
+  overflow-y: auto;
+  // border: 2px dashed magenta;
+}
+
+.brand-list {
+  padding: 0;
+}
+
+.brand-item {
+  // display: grid;
+  // grid-template-columns: max-content max-content max-content max-content;
+  height: 100px;
+  // border: 1px dotted red;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  height: 72px;
+  
+  &.example-alternate{
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.brand-icon {
+  color: #3f51b5;
+}
+
+.brand-name {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.brand-id {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}

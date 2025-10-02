@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VehiclesRoutingModule } from './vehicles-routing-module';
-import { Vehicles } from './vehicles';
+import { SharedModule } from '../../shared/shared-module';
 import { VehicleListPage } from './containers/vehicle-list-page/vehicle-list-page';
 import { VehicleDetailPage } from './containers/vehicle-detail-page/vehicle-detail-page';
 import { VehicleCard } from './components/vehicle-card/vehicle-card';
@@ -14,7 +14,6 @@ import { VehicleModelList } from './components/vehicle-model-list/vehicle-model-
 
 @NgModule({
   declarations: [
-    Vehicles,
     VehicleListPage,
     VehicleDetailPage,
     VehicleCard,
@@ -25,7 +24,13 @@ import { VehicleModelList } from './components/vehicle-model-list/vehicle-model-
   ],
   imports: [
     CommonModule,
-    VehiclesRoutingModule
+    VehiclesRoutingModule,
+    SharedModule,
+  ],
+  exports: [
+    VehicleTypeList,
+    VehicleModelList,
+
   ]
 })
 export class VehiclesModule { }
