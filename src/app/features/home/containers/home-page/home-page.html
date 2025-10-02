@@ -1,69 +1,67 @@
-<div class="home-container">
-  <div class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        <mat-icon class="hero-icon">car_rental</mat-icon>
-        Vehicle Brand Explorer
-      </h1>
-      <p class="hero-subtitle">
-        Explore over 10,000 vehicle brands with advanced search and filtering
-      </p>
-      
-      <div class="cache-status" *ngIf="cacheStatus$ | async as cache">
-        <mat-chip-set aria-label="cache-status storage and last updated">
-          <mat-chip class="status-chip">
-            <mat-icon>storage</mat-icon>
-            {{ cache.vehicleCount }} brands cached
-          </mat-chip>
-          <mat-chip class="status-chip">
-            <mat-icon>schedule</mat-icon>
-            Last updated: {{ cache.lastLoaded }}
-          </mat-chip>
-          
-        </mat-chip-set>
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <mat-icon class="hero-icon">car_rental</mat-icon>
+      Vehicle Brand Explorer
+    </h1>
+    <p class="hero-subtitle">
+      Explore over 10,000 vehicle brands with advanced search and filtering
+    </p>
+    
+    <div class="cache-status" *ngIf="cacheStatus$ | async as cache">
+      <mat-chip-set aria-label="cache-status storage and last updated">
+        <mat-chip class="status-chip">
+          <mat-icon>storage</mat-icon>
+          {{ cache.vehicleCount }} brands cached
+        </mat-chip>
+        <mat-chip class="status-chip">
+          <mat-icon>schedule</mat-icon>
+          Last updated: {{ cache.lastLoaded }}
+        </mat-chip>
+        
+      </mat-chip-set>
 
-      </div>
     </div>
   </div>
-
-  <div class="search-section">
-    <mat-toolbar color="primary" class="search-toolbar">
-      <span>Browse All Brands</span>
-      <span class="spacer"></span>
-      <button 
-        mat-icon-button 
-        (click)="onRefresh()" 
-        matTooltip="Refresh data"
-        aria-label="Refresh data">
-        <mat-icon>refresh</mat-icon>
-      </button>
-    </mat-toolbar>
-
-    <div class="search-container">
-      <app-search-input
-        [value]="(searchTerm$ | async)?? ''"
-        placeholder="Type to filter brands... (e.g., Tesla, Ford, BMW)"
-        (valueChange)="onSearchChange($event)">
-      </app-search-input>
-    </div>
-  </div>
-
-  <app-loading-spinner 
-    *ngIf="loading$ | async"
-    message="Loading vehicle brands..."
-    [diameter]="60">
-  </app-loading-spinner>
-
-  <app-error-message
-    *ngIf="error$ | async as error"
-    [message]="error"
-    (retry)="onRefresh()">
-  </app-error-message>
-
-  @if(!(loading$ | async) && !(error$ | async)){
-    <app-brand-list
-      [brands]="vehicles$ | async"
-      (brandSelect)="onBrandSelect($event)">
-    </app-brand-list>
-  }
 </div>
+
+<div class="search-section">
+  <mat-toolbar color="primary" class="search-toolbar">
+    <span>Browse All Brands</span>
+    <span class="spacer"></span>
+    <button 
+      mat-icon-button 
+      (click)="onRefresh()" 
+      matTooltip="Refresh data"
+      aria-label="Refresh data">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="search-container">
+    <app-search-input
+      [value]="(searchTerm$ | async)?? ''"
+      placeholder="Type to filter brands... (e.g., Tesla, Ford, BMW)"
+      (valueChange)="onSearchChange($event)">
+    </app-search-input>
+  </div>
+</div>
+
+<app-loading-spinner 
+  *ngIf="loading$ | async"
+  message="Loading vehicle brands..."
+  [diameter]="60">
+</app-loading-spinner>
+
+<app-error-message
+  *ngIf="error$ | async as error"
+  [message]="error"
+  (retry)="onRefresh()">
+</app-error-message>
+
+@if(!(loading$ | async) && !(error$ | async)){
+  <app-brand-list
+    [brands]="vehicles$ | async"
+    (brandSelect)="onBrandSelect($event)">
+  </app-brand-list>
+}

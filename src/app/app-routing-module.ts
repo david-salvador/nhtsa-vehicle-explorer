@@ -13,11 +13,6 @@ const routes: Routes = [
       .then(m => m.VehiclesModule)
   },
   {
-    path: 'brands',
-    loadChildren: () => import('./features/brands/brands-module')
-      .then(m => m.BrandsModule)
-  },
-  {
     path: '**',
     redirectTo: '/home'
   }

@@ -1,10 +1,9 @@
-// .brand-list-container {
 :host {
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: visible;
-  display: flex;
-  flex-direction: column;
+  position:relative;
+  overflow-y: hidden;
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100%;
 }
 
 .empty-state {
@@ -35,21 +34,14 @@
 }
 
 .brand-viewport {
-  height: 500px;
   overflow-y: auto;
-  // border: 2px dashed magenta;
 }
 
 .brand-list {
   padding: 0;
 }
 
-.brand-item {
-  // display: grid;
-  // grid-template-columns: max-content max-content max-content max-content;
-  height: 100px;
-  // border: 1px dotted red;
-
+.brand-item {  
   cursor: pointer;
   transition: background-color 0.2s ease;
   height: 72px;

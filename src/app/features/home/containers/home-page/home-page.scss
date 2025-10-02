@@ -1,7 +1,15 @@
-.home-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 100vw;
+// hardcoding height values here (not optimal)
+$header-and-footer-height: 64px;
+$hero-padding-vertical : 48px;
+$hero-height: calc(148px + 2 * $hero-padding-vertical);
+$search-height: 172px;
+$list-height: calc(100vh - 2 * $header-and-footer-height - $hero-height - $search-height);
+
+:host {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: $hero-height $search-height $list-height;
 }
 
 .hero-section {

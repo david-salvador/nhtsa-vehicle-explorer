@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class Header {
   navLinks = [
     { path: '/home', label: 'Home', icon: 'home' },
-    { path: '/vehicles', label: 'Vehicles', icon: 'directions_car' },
-    { path: '/brands', label: 'Brands', icon: 'business' }
+    { path: '/vehicles/452', label: 'bmw_deeplink', icon: 'link' },
+    { path: '/vehicles/441', label: 'tesla_deeplink', icon: 'link' },
   ];
 }

@@ -6,9 +6,6 @@ import { MaterialModule } from './material/material-module';
 import { LoadingSpinner } from './components/loading-spinner/loading-spinner';
 import { ErrorMessage } from './components/error-message/error-message';
 import { SearchInput } from './components/search-input/search-input';
-import { FilterPipe } from './pipes/filter-pipe';
-import { HighlightPipe } from './pipes/highlight-pipe';
-import { DebounceClick } from './directives/debounce-click';
 
 
 
@@ -16,10 +13,7 @@ import { DebounceClick } from './directives/debounce-click';
   declarations: [
     LoadingSpinner,
     ErrorMessage,
-    SearchInput,
-    FilterPipe,
-    HighlightPipe,
-    DebounceClick
+    SearchInput
   ],
   imports: [
     CommonModule,
@@ -34,10 +28,7 @@ import { DebounceClick } from './directives/debounce-click';
     MaterialModule,
     LoadingSpinner,
     ErrorMessage,
-    SearchInput,
-    FilterPipe,
-    HighlightPipe,
-    DebounceClick
+    SearchInput
   ]
 })
 export class SharedModule { }

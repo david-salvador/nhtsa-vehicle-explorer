@@ -6,10 +6,10 @@
 
 @if(brands && brands.length > 0) {
   <cdk-virtual-scroll-viewport 
-    itemSize="100" 
+    itemSize="64" 
     class="brand-viewport"
-    minBufferPx="2000"
-    maxBufferPx="4000">
+    minBufferPx="640"
+    maxBufferPx="1280">
     
     <mat-list class="brand-list">
       <mat-list-item

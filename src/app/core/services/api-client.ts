@@ -18,9 +18,9 @@ export class ApiClient {
     const httpParams = this.buildParams(params);
 
 
-    if (endpoint === 'GetAllMakes') { 
-      return this.mockGet() as Observable<T>;
-    }
+    // if (endpoint === 'GetAllMakes') { 
+    //   return this.mockGet() as Observable<T>;
+    // }
     return this.http.get<T>(`${this.baseUrl}/${endpoint}`, { params: httpParams });
   }
 
@@ -48,73 +48,37 @@ export class ApiClient {
       "SearchCriteria": null,
       "Results": [
         {
-          "Make_ID": 12858,
-          "Make_Name": "#1 ALPINE CUSTOMS"
+            "Make_ID": 6001,
+            "Make_Name": "BUD ANTLE INC"
         },
         {
-          "Make_ID": 4877,
-          "Make_Name": "1\/OFF KUSTOMS, LLC"
+            "Make_ID": 590,
+            "Make_Name": "BUELL"
         },
         {
-          "Make_ID": 11257,
-          "Make_Name": "102 IRONWORKS, INC."
+            "Make_ID": 446,
+            "Make_Name": "BUELL (EBR)"
         },
         {
-          "Make_ID": 12255,
-          "Make_Name": "12832429 CANADA INC."
+            "Make_ID": 961,
+            "Make_Name": "BUFFALO CHOPPERS"
         },
         {
-          "Make_ID": 13053,
-          "Make_Name": "137 INDUSTRIES INC."
+            "Make_ID": 4703,
+            "Make_Name": "BUFFALO TRAILER MANUFACTURING"
         },
         {
-          "Make_ID": 6387,
-          "Make_Name": "17 CREEK ENTERPRISES"
+            "Make_ID": 8068,
+            "Make_Name": "BUFFALO TRUCK EQUIPERS, INC"
         },
         {
-          "Make_ID": 12948,
-          "Make_Name": "1955 CUSTOM BELAIR"
+            "Make_ID": 7425,
+            "Make_Name": "BUG MOTORS"
         },
         {
-          "Make_ID": 9172,
-          "Make_Name": "1M CUSTOM CAR TRANSPORTS, INC."
-        },
-        {
-          "Make_ID": 6124,
-          "Make_Name": "1ST CHOICE MANUFACTURING INC"
-        },
-        {
-          "Make_ID": 94877,
-          "Make_Name": "aaaaaa 1\/OFF KUSTOMS, LLC"
-        },
-        {
-          "Make_ID": 911257,
-          "Make_Name": "102 IRONWORKS, INC."
-        },
-        {
-          "Make_ID": 912255,
-          "Make_Name": "12832429 CANADA INC."
-        },
-        {
-          "Make_ID": 913053,
-          "Make_Name": "137 INDUSTRIES INC."
-        },
-        {
-          "Make_ID": 96387,
-          "Make_Name": "17 CREEK ENTERPRISES"
-        },
-        {
-          "Make_ID": 912948,
-          "Make_Name": "1955 CUSTOM BELAIR"
-        },
-        {
-          "Make_ID": 99172,
-          "Make_Name": "1M CUSTOM CAR TRANSPORTS, INC."
-        },
-        {
-          "Make_ID": 96124,
-          "Make_Name": "1ST CHOICE MANUFACTURING INC"
-        },
+            "Make_ID": 454,
+            "Make_Name": "BUGATTI"
+        }
       ]
   };
     return of(returnBrands);

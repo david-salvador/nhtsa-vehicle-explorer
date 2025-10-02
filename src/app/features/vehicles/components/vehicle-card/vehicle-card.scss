@@ -1,10 +1,6 @@
-:host {
-  // max-height: 100px;
-}
 .vehicle-card {
   cursor: pointer;
   transition: all 0.3s ease;
-  // height: 100%;
   max-height: 100px;
   display: flex;
   flex-direction: column;

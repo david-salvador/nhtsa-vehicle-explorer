@@ -39,7 +39,6 @@ body {
 }
 /* You can add global styles to this file, and also import other style files */
 
-// @include mat.all-component-themes($theme);
 
 // Global styles
 * {
@@ -97,19 +96,9 @@ body {
   background: #555;
 }
 
-.debug {
-  border: 1px solid gray;
-  background-color: #dadada;
-  color: darkmagenta;
-}
-
-.mdc-evolution-chip__text-label {
-
-  
+.mdc-evolution-chip__text-label {  
   display: grid;
   grid-template-columns: min-content max-content;
   gap: 0.4rem;
   align-items: anchor-center;
-  
-  
 }
