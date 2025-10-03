@@ -20,9 +20,7 @@ import {
   selectVehiclesLastLoaded 
 } from '../selectors/vehicle.selectors';
 import { environment } from '../../../../../environments/environment';
-import { Vehicles } from '../../vehicles';
 import { Vehicle, VehicleModel, VehicleType } from '../models/vehicle-state.model';
-// import { VehicleModel, VehicleType } from '../../services/vehicle-api';
 
 @Injectable()
 export class VehicleEffects {

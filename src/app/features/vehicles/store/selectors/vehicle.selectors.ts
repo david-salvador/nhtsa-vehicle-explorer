@@ -6,16 +6,16 @@ import { selectVehicleModuleState } from '../reducers';
 
 
 /*
-Memoized selectors for performant data access
-Selectors compute derived state efficiently with automatic memoization, recalculating only when 
-input state changes. The EntityAdapter provides built-in selectors (selectAll, selectEntities, 
-selectIds) that extract normalized data—these compose into feature-specific selectors that 
-components consume via the store.
+  Memoized selectors for performant data access
+  Selectors compute derived state efficiently with automatic memoization, recalculating only when 
+  input state changes. The EntityAdapter provides built-in selectors (selectAll, selectEntities, 
+  selectIds) that extract normalized data—these compose into feature-specific selectors that 
+  components consume via the store.
 
-Memoization prevents expensive recalculations—selectFilteredVehicles only recomputes when vehicles 
-array or searchTerm changes, not on every component change detection cycle. This optimization is 
-crucial for lists with thousands of items, reducing CPU usage by 80-90% compared to filtering in 
-components.
+  Memoization prevents expensive recalculations—selectFilteredVehicles only recomputes when vehicles 
+  array or searchTerm changes, not on every component change detection cycle. This optimization is 
+  crucial for lists with thousands of items, reducing CPU usage by 80-90% compared to filtering in 
+  components.
 */
 
 // Feature selector

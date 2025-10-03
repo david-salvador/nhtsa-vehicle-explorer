@@ -5,8 +5,6 @@ import { VehiclesRoutingModule } from './vehicles-routing-module';
 import { SharedModule } from '../../shared/shared-module';
 import { VehicleDetailPage } from './containers/vehicle-detail-page/vehicle-detail-page';
 import { VehicleCard } from './components/vehicle-card/vehicle-card';
-import { VehicleFilter } from './components/vehicle-filter/vehicle-filter';
-import { VehicleSearch } from './components/vehicle-search/vehicle-search';
 import { VehicleTypeList } from './components/vehicle-type-list/vehicle-type-list';
 import { VehicleModelList } from './components/vehicle-model-list/vehicle-model-list';
 
@@ -15,8 +13,6 @@ import { VehicleModelList } from './components/vehicle-model-list/vehicle-model-
   declarations: [
     VehicleDetailPage,
     VehicleCard,
-    VehicleFilter,
-    VehicleSearch,
     VehicleTypeList,
     VehicleModelList
   ],
